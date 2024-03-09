@@ -11,6 +11,6 @@
   "scripts": {
     "start": "concurrently \"yarn client\" \"yarn server\"",
     "client": "cd client && yarn run dev",
-    "server": "FLASK_APP=server flask run"
+    "server": "FLASK_APP=server flask run --debug"
   }
 }
