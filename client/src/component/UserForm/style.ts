@@ -8,7 +8,6 @@ export const UserFormWrapper = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
 
     input,
     button {
@@ -17,6 +16,7 @@ export const UserFormWrapper = styled.div`
       border-radius: 0.5rem;
       outline: none;
       font-size: 1rem;
+      margin-top:.5rem;
 
       :focus {
         outline: none;
@@ -24,7 +24,15 @@ export const UserFormWrapper = styled.div`
     }
 
     button:hover {
-      background-color:#ddd9;
+      background-color: #ddd9;
+    }
+
+    .error {
+      padding: .5rem;
+      border:solid thin red;
+      border-top-color:transparent;
+      color: red;
+      margin:0;
     }
   }
 `;

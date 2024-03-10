@@ -5,20 +5,38 @@ import { MainWrapper } from "./style";
 import InputSearch from "./components/InputSearch";
 
 const Main = () => {
-  const [userData, setUserData] = useState<string>();
-  const [userUpdate, setUserUpdate] = useState({username:'',email:''});
+  const [loading, setLoading] = useState<boolean>(false);
+  const [userUpdate, setUserUpdate] = useState({ username: "", email: "" });
+  const [updateSubmit, setUpdateSubmit] = useState<boolean>(false);
   const [userUpdateUsername, setUserUpdateUsername] = useState<string>("");
-  const [loading,setLoading] = useState<boolean>(false)
-  const [updateSubmit,setUpdateSubmit] = useState<boolean>(false)
+
+  const UserListProps = {
+    setUserUpdate,
+    loading,
+    setLoading,
+    updateSubmit,
+    setUpdateSubmit,
+    setUserUpdateUsername,
+  };
+
+  const UserFormProps = {
+    setUserUpdate,
+    userUpdate,
+    loading,
+    setLoading,
+    updateSubmit,
+    setUpdateSubmit,
+    userUpdateUsername,
+  };
 
   return (
     <MainWrapper>
-    <div>
-    <InputSearch/>
-    <UserList setUserUpdate={setUserUpdate} loading={loading} setLoading={setLoading} 
-    updateSubmit={updateSubmit} setUpdateSubmit={setUpdateSubmit} setUserUpdateUsername={setUserUpdateUsername}/>
-    </div>
-      <UserForm setUserUpdate={setUserUpdate} userUpdate={userUpdate} loading={loading} setLoading={setLoading} updateSubmit={updateSubmit} setUpdateSubmit={setUpdateSubmit} userUpdateUsername={userUpdateUsername}/>
+      {
+        //<div>
+        //<InputSearch/>
+      }
+      <UserList {...UserListProps} />
+      <UserForm {...UserFormProps} />
     </MainWrapper>
   );
 };

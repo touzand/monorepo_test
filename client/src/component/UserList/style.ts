@@ -25,21 +25,21 @@ export const UserListWrapper = styled.div`
       background-color: #141414;
     }
 
-    button{
-      border:none;
-      color:whitesmoke;
-      background-color:#198754;
-      padding:.5rem;
-      border-radius:.25rem;
-      cursor:pointer;
-  }
+    button {
+      border: none;
+      color: whitesmoke;
+      background-color: #198754;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
 
     button:nth-child(even) {
-      background-color:#dc3545;
+      background-color: #dc3545;
     }
   }
 
-  p{
-    text-align:center;
+  p {
+    text-align: center;
   }
 `;

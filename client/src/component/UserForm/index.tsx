@@ -3,13 +3,23 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { onSubmit, onUpdate } from "../../util/formFunc";
+import FormPropsInterface from "../../@types/formProps";
 
 const UserSchema = z.object({
-  username: z.string(),
+  username: z.string().nonempty(),
   email: z.string().email({ message: "Error locochon" }),
 });
 
-const UserForm = ({ userUpdate, setLoading, updateSubmit, setUpdateSubmit, setUserUpdate, userUpdateUsername }) => {
+const UserForm = (props: FormPropsInterface) => {
+  const {
+    userUpdate,
+    setLoading,
+    updateSubmit,
+    setUpdateSubmit,
+    userUpdateUsername,
+    setUserUpdate,
+  } = props;
+
   const {
     handleSubmit,
     register,
@@ -28,26 +38,38 @@ const UserForm = ({ userUpdate, setLoading, updateSubmit, setUpdateSubmit, setUs
     }, 500);
   };
 
-  const handleOnUpdate = (data:any) => {
-    setUpdateSubmit(false)
-    setUserUpdate({username:'',email:''})
-    onUpdate(data,userUpdateUsername)
+  const handleOnUpdate = (data: any) => {
+    setUpdateSubmit(false);
+    setUserUpdate({ username: "", email: "" });
+    onUpdate(data, userUpdateUsername);
     reset();
 
     setTimeout(() => {
       setLoading(true);
     }, 500);
-  }
+  };
 
   return (
     <UserFormWrapper>
-    <form onSubmit={updateSubmit ? handleSubmit(handleOnUpdate) : handleSubmit(handleOnSubmit)}>
-        <input {...register("username")} defaultValue={userUpdate.username} placeholder="Username"/>
-        <input {...register("email")} defaultValue={userUpdate.email} placeholder="Email"/>
-        {
-          //{errors.username && <p style={{ color: "red" }}>{errors.username.message}</p>}
-          //{errors.email && <p style={{ color: "red" }}>{errors.email.message}</p>}
+      <form
+        onSubmit={
+          updateSubmit
+            ? handleSubmit(handleOnUpdate)
+            : handleSubmit(handleOnSubmit)
         }
+      >
+        <input
+          {...register("username")}
+          defaultValue={userUpdate?.username}
+          placeholder="Username"
+        />
+          {errors.username && <p className="error">Erro no username</p>}
+        <input
+          {...register("email")}
+          defaultValue={userUpdate?.email}
+          placeholder="Email"
+        />
+          {errors.email && <p className="error">Erro no email</p>}
         <button type="submit">Submit</button>
       </form>
     </UserFormWrapper>

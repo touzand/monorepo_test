@@ -1,4 +1,4 @@
-#!/home/alanalonso/www/github_test/flask_react_monorepo/.venv/bin/python3
+#!/Users/alanalonso/www/react/monorepo_test/.venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys

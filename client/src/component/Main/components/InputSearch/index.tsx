@@ -1,13 +1,13 @@
-import {InputSearchWrapper} from "./style";
+import { InputSearchWrapper } from "./style";
 
 const InputSearch = () => {
-  return(
-      <InputSearchWrapper>
+  return (
+    <InputSearchWrapper>
       <form>
-      <input type="text" placeholder="Alan or alan@gmail.com"/>
+        <input type="text" placeholder="Alan or alan@gmail.com" />
       </form>
-      </InputSearchWrapper>
-      )
-}
+    </InputSearchWrapper>
+  );
+};
 
 export default InputSearch;

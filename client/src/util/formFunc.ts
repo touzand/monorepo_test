@@ -22,7 +22,7 @@ export const onUpdate = (data: any,username:string) => {
 };
 
 
-export const UserDelete = (e: any, setLoading) => {
+export const UserDelete = (e: any, setLoading:any) => {
   const id = e.target.id;
   instance.post(id + "/delete");
 
