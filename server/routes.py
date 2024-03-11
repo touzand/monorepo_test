@@ -1,7 +1,8 @@
+from flask import request
 from flask import Blueprint
+
 from .models import db,User
 from .schemas import UserSchema
-from flask import request
 
 app = Blueprint("routes",__name__)
 

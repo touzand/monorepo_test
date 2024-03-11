@@ -1,10 +1,8 @@
+import os
 from flask import Flask
 from flask_cors import CORS
-import datetime as dt 
 from dotenv import load_dotenv 
-import os
 
-from .schemas import UserSchema
 from .models import db
 from .routes import app as routes_blueprint
 

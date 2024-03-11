@@ -10,10 +10,10 @@ type User = {
   email: string;
 };
 
-const UserList = ( props:ListPropsInterface ) => {
+const UserList = (props: ListPropsInterface) => {
   const {
     setUserUpdate,
-      loading,
+    loading,
     setLoading,
     setUpdateSubmit,
     setUserUpdateUsername,
@@ -29,7 +29,7 @@ const UserList = ( props:ListPropsInterface ) => {
     setLoading(false);
   }, [loading]);
 
-  const handleUpdate = (user:User) => {
+  const handleUpdate = (user: User) => {
     setUserUpdate(user);
     setUpdateSubmit(true);
     setUserUpdateUsername(user.username);
@@ -48,7 +48,10 @@ const UserList = ( props:ListPropsInterface ) => {
               <span>{user.email}</span>
               <div>
                 <button onClick={() => handleUpdate(user)}>U</button>
-                <button id={user.id.toString()} onClick={(e) => UserDelete(e, setLoading)}>
+                <button
+                  id={user.id.toString()}
+                  onClick={(e) => UserDelete(e, setLoading)}
+                >
                   D
                 </button>
               </div>
