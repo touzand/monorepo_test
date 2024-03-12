@@ -1,7 +1,7 @@
 import { UserListWrapper } from "./style";
 import { UserDelete } from "../../util/formFunc";
 import ListPropsInterface from "../../@types/listProps";
-import {User} from "../../@types/user";
+import { User } from "../../@types/user";
 
 const UserList = (props: ListPropsInterface) => {
   const {
@@ -25,7 +25,7 @@ const UserList = (props: ListPropsInterface) => {
           <p>Here you will see some users when you have it</p>
         ) : (
           userList.length > 0 &&
-          userList.map((user:User, index:number) => (
+          userList.map((user: User, index: number) => (
             <div key={index}>
               <span>{user.username}</span>
               <span>{user.email}</span>
